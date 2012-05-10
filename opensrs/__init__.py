@@ -275,6 +275,14 @@ class OpenSRS(object):
             "tlds": tlds,
             })
 
+    def check_transfer(self, domain_name):
+        """
+        Shortcut to check transfer status of a domain.
+        """
+        return self.post("check_transfer", "domain", {
+            "domain": domain_name,
+            })
+
     def balance(self):
         """
         Shortcut to get the balance.

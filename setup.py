@@ -4,8 +4,9 @@ from setuptools import setup
 
 setup(
         name="OpenSRS",
+        include_package_data=True,
         packages=['opensrs', ],
-        install_requires=['httplib2', ],
+        install_requires=['httplib2 >= 0.7', ],
         version='0.1.3',
         description='Higher level Python interface to the OpenSRS XML API',
         long_description=open('README.md').read(),

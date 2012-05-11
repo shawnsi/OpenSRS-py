@@ -29,6 +29,7 @@ from urllib import quote, urlencode
 
 import httplib2
 import hashlib
+import os
 
 OPENSRS_SERVERS = {
         'production': 'https://rr-n1-tor.opensrs.net:55443',
@@ -62,8 +63,9 @@ class OpenSRS(object):
 
     Convenience functions exists for some functions, patches are welcome
     """
-
-    H = httplib2.Http()
+    CA_CERTS = os.path.join(
+                os.path.dirname(os.path.abspath(__file__ )), "cacert.pem")
+    H = httplib2.Http(ca_certs=CA_CERTS)
     server = None
     username = None
     private_key = None
